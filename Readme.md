@@ -15,8 +15,13 @@ Compiled binary (portable) versions are available in the **binaries/** directory
 ## Simple use:
 
 * clone or download the repository
-* drag-and-drop your image onto the appropriate executable file in the *binaries/* directory
+![Download the repository](doc_media/demo0.png)
+
+* open the binaries directory, find the matching binary/architecture for your OS, drag-and-drop your image onto the appropriate executable file
+![Drag and drop the image onto the executable file](doc_media/demo1.png)
+
 * your tiles will be created in a new folder in the directory with the original image
+![Output directory is created with the image](doc_media/demo2.png)
 
 ## Command line use:
 
