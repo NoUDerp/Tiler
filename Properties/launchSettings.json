@@ -1,7 +1,8 @@
 {
   "profiles": {
     "Tiler": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "sqlDebugging": false
     }
   }
 }
