@@ -11,11 +11,14 @@ dotnet publish -c Release -r win-arm64 --self-contained true -p:PublishSingleFil
 del binaries\Tiler-Windows-arm64.exe
 ren binaries\Tiler.exe Tiler-Windows-arm64.exe
 dotnet publish -c Release -r linux-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
-del binaries\Tiler-Linux-x64
-ren binaries\Tiler Tiler-Linux-x64
+del binaries\Tiler-Linux-amd64
+ren binaries\Tiler Tiler-Linux-amd64
 dotnet publish -c Release -r linux-musl-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
-del binaries\Tiler-Linux-musl-x64
-ren binaries\Tiler Tiler-Linux-musl-x64
+del binaries\Tiler-Linux-musl-amd64
+ren binaries\Tiler Tiler-Linux-musl-amd64
+dotnet publish -c Release -r linux-x86 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
+del binaries\Tiler-Linux-x86
+ren binaries\Tiler Tiler-Linux-x86
 dotnet publish -c Release -r linux-arm --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
 del binaries\Tiler-Linux-arm32
 ren binaries\Tiler Tiler-Linux-arm32
