@@ -7,7 +7,11 @@ namespace Tiler
     {
         static void Main(string[] args)
         {
-            var commandline = args.Select((x, i) => new { index = i, option = x }).Where(x => x.option.StartsWith("-")).Select(x => new { option = x.option.Substring(1), arguments = args.Skip(x.index).TakeWhile(m => !m.StartsWith("-")).ToArray() }).ToDictionary(x => x.option.ToLower(), x => x.arguments);
+            var commandline = 
+                args.Select((x, i) => new { index = i, option = x })
+                .Where(x => x.option.StartsWith("-")).Select(x => new { option = x.option.Substring(1), arguments = args.Skip(x.index+1)
+                .TakeWhile(m => !m.StartsWith("-")).ToArray() })
+                .ToDictionary(x => x.option.ToLower(), x => x.arguments);
             if (args.Length == 0 || commandline.ContainsKey("h") || commandline.ContainsKey("help"))
             {
                 Console.WriteLine("Tiler XYZ tile maker v1.0");
