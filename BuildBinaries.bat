@@ -16,7 +16,7 @@ ren binaries\Tiler Tiler-Linux-amd64
 dotnet publish -c Release -r linux-musl-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
 del binaries\Tiler-Linux-musl-amd64
 ren binaries\Tiler Tiler-Linux-musl-amd64
-dotnet publish -c Release -r linux-x86 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
+dotnet publish -c Release -f netcoreapp3.1 -r linux-x86 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
 del binaries\Tiler-Linux-x86
 ren binaries\Tiler Tiler-Linux-x86
 dotnet publish -c Release -r linux-arm --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
@@ -31,3 +31,9 @@ ren binaries\Tiler Tiler-OSX-x64
 dotnet publish -c Release -r osx-arm64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
 del binaries\Tiler-OSX-arm64
 ren binaries\Tiler Tiler-OSX-arm64
+dotnet publish -c Windows7 -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
+del binaries\Tiler-Windows7-x64.exe
+ren binaries\Tiler.exe Tiler-Windows7-x64.exe
+dotnet publish -c Windows7 -r win-x86 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true /p:PublishTrimmed=true -p:PublishReadyToRun=false -o binaries
+del binaries\Tiler-Windows7-x86.exe
+ren binaries\Tiler.exe Tiler-Windows7-x86.exe

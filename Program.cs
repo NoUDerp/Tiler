@@ -65,7 +65,7 @@ namespace Tiler
                     : (IResampler)new BicubicResampler();
 
                 // Scale the entire image
-                using (Image<Rgba32> Rescaled = new(OriginalSource.Width, OriginalSource.Height))
+                using (Image<Rgba32> Rescaled = new Image<Rgba32>(OriginalSource.Width, OriginalSource.Height))
                 {
                     Rescaled.Mutate(x => x.DrawImage(OriginalSource, new Point(0, 0), 1.0f).Resize(width, height, Sampler));
                     Scaled.Mutate(x => x.DrawImage(Rescaled, new Point((Scaled.Width - width) / 2, (Scaled.Height - height) / 2), new GraphicsOptions()));

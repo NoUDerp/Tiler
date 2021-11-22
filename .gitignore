@@ -2,9 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/Tiler
-/bin/Debug/net5.0/win-x64
+/.vs
 /obj
 /Tiler.csproj.user
-/bin/Debug/net6.0/win-x64
-/bin/Release/net6.0
+/bin/Debug
+/bin/Release
+/bin

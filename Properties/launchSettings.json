@@ -2,6 +2,7 @@
   "profiles": {
     "Tiler": {
       "commandName": "Project",
+      "commandLineArgs": "map.png",
       "sqlDebugging": false
     }
   }
