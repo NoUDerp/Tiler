@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs/Tiler
+/bin/Debug/net5.0/win-x64
+/obj
+/Tiler.csproj.user
+/bin/Debug/net6.0/win-x64
+/bin/Release/net6.0
