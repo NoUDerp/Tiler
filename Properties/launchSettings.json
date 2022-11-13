@@ -2,7 +2,8 @@
   "profiles": {
     "Tiler": {
       "commandName": "Project",
-      "commandLineArgs": "map.png",
+      "commandLineArgs": "-input \"c:\\code\\logiwaze\\Tiles.png\" -zoom 8",
+      "workingDirectory": "C:\\Code\\tiler\\bin\\Debug\\net6.0",
       "sqlDebugging": false
     }
   }

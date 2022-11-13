@@ -29,11 +29,17 @@ namespace Tiler
 
             if (args.Length == 0 || commandline.ContainsKey("h") || commandline.ContainsKey("help"))
             {
+                var Executable = new FileInfo(System.Diagnostics.Process.GetCurrentProcess().MainModule?.FileName ?? "Tiler.exe").Name;
+
+                if (!System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows))
+                    Executable = $"./{Executable}";
+
                 Console.Write("Tiler XYZ tile maker v1.0\n" +
-                                  "Usage:\n" +
-                                  "Tiler.exe image.jpg\n" +
-                                  " or\n" +
-                                  $"Tiler.exe -input image.jpg -size 256 -zoom 6 -filename \"image.jpg-tiles{Path.DirectorySeparatorChar}{{z}}_{{x}}_{{y}}.png\"\n");
+                              "Usage:\n" +
+                              $"{Executable} image.jpg\n" +
+                              " or\n" +
+                              $"{Executable} -input image.jpg -size 256 -zoom 6 -filename \"image.jpg-tiles{Path.DirectorySeparatorChar}{{z}}_{{x}}_{{y}}.png\"\n");
+
                 return;
             }
 
@@ -72,7 +78,7 @@ namespace Tiler
                 }
 
                 // Take tiles from it
-                Enumerable.Range(0, tiles).SelectMany(x => Enumerable.Range(0, tiles).Select(y => new { x, y })).AsParallel().ForAll((c) =>
+                Enumerable.Range(0, tiles).SelectMany(x => Enumerable.Range(0, tiles).Select(y => new { x, y })).AsParallel().WithDegreeOfParallelism(8).ForAll((c) =>
                 {
                     using var Tile = new Image<Rgba32>(tile_size, tile_size);
                     lock (Scaled)
